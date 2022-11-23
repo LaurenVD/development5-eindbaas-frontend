@@ -1,2 +1,2 @@
-# development5-eindbaas
+# development5-eindbaas-vue
 Eindbaas - Donutello
