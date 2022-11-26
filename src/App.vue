@@ -1,31 +1,41 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
+  <nav>
+    <a class="nav--link" href="/">Home</a>
+    <a class="nav--link" href="/">Configurator</a>
+    <a class="nav--link" href="/">Gallerij</a>
+  </nav>
+  <img src="./assets/donuttello-logo.png" alt="donutello">
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1>Welkom bij de Donutello configurator!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  nav {
+    margin: 0;
+    display: flex;
+    padding: 2rem;
+    justify-content: right;
+    align-items: center;
+    background-color: #E72C70;
+  }
+
+  .nav--link {
+    margin-right: 2rem;
+    color: #fff;
+  }
+
+  img {
+    margin-top: -3rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 2rem;
+  };
 </style>
