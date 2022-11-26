@@ -11,4 +11,26 @@ import Home from './components/Home.vue'
 </template>
 
 <style scoped>
+nav {
+    margin: 0;
+    display: flex;
+    padding: 2rem;
+    justify-content: right;
+    align-items: center;
+    background-color: #E72C70;
+  }
+
+  .nav--link {
+    margin-right: 2rem;
+    color: #fff;
+  }
+
+  img {
+    margin-top: -3rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 2rem;
+  };
 </style>
