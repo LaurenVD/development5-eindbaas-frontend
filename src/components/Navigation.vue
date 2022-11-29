@@ -4,11 +4,11 @@
 
 <template>
   <nav>
-    <img src="./../assets/donuttello-logo.png" alt="donutello">
     <a class="nav--link" href="/">Home</a>
     <a class="nav--link" href="/">Configurator</a>
     <a class="nav--link" href="/gallery.html">Gallerij</a>
   </nav>
+  <img src="./../assets/donuttello-logo.png" alt="donutello">
 </template>
 
 <style scoped>
