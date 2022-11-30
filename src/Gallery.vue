@@ -4,6 +4,13 @@
 import Navigation from './components/Navigation.vue';
 import GalleryItem from './components/GalleryItem.vue';
 import Home from './components/Home.vue'
+
+//only show gallery with right token
+const token = localStorage.getItem('token')
+if (!token) {
+  window.location.href = '/login.html'
+}
+
 </script>
 
 <template>

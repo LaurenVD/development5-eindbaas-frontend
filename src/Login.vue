@@ -7,36 +7,27 @@ import Home from './components/Home.vue'
 
 import { onMounted, reactive, ref } from 'vue'
 
-//login form
-let username = ref("");
-let password = ref("");
 
-//login function
-const login = () => {
-    //fetch login from https://donutello-backend.onrender.com/api/v1/login
-    const apiUrl = "https://donutello-backend.onrender.com/users/login";
-    //if button is clicked and username and password are correct, redirect to gallery.html
-    fetch(apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username: username.value,
-            password: password.value,
-        }),
+//log user in with correct credentials
+const login = async () => {
+  const response = await fetch('https://donutello-backend.onrender.com/users/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username: username.value,
+      password: password.value
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if (data.status === "success") {
-                window.location.href = "gallery.html";
-            }
-        })
-
-};
-
-console.log(username.value, password.value)
+  })
+  const data = await response.json()
+  console.log(data)
+// if user is not false then redirect to gallery
+  if (data.data.user.user) {
+    localStorage.setItem('token', data.data.user.user.token)
+    window.location.href = '/gallery.html'
+  }
+}
 
 </script>
 
@@ -44,8 +35,8 @@ console.log(username.value, password.value)
     <Navigation />
   <div class="signup">
     <div>
-      <label for="email">Email</label>
-      <input type="text" class="input--text" name="email" id="email">
+      <label for="username">username</label>
+      <input type="text" class="input--text" name="username" id="username">
     </div>
     
     <div>
