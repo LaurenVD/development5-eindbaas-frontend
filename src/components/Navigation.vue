@@ -7,6 +7,7 @@
     <a class="nav--link" href="/">Home</a>
     <a class="nav--link" href="/">Configurator</a>
     <a class="nav--link" href="/gallery.html">Gallerij</a>
+    <a class="nav--link" href="/login.html">Login</a>
   </nav>
   <img src="./../assets/donuttello-logo.png" alt="donutello">
 </template>
