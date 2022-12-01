@@ -1,4 +1,11 @@
 <script setup>
+import { ref, onMounted, reactive } from 'vue'
+
+//when button is clicked, remove token from local storage and redirect to login page
+const logout = () => {
+    localStorage.removeItem('token')
+    window.location.href = '/login.html'
+}
 
 </script>
 
@@ -8,6 +15,7 @@
     <a class="nav--link" href="/">Configurator</a>
     <a class="nav--link" href="/gallery.html">Gallerij</a>
     <a class="nav--link" href="/login.html">Login</a>
+    <a class="nav--link" @click="logout">Logout</a>
   </nav>
   <img src="./../assets/donuttello-logo.png" alt="donutello">
 </template>
