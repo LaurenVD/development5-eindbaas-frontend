@@ -82,16 +82,49 @@
                 <img :src="image" alt="donut image" class="donut__image">
                 <p>Glaze: {{glaze}}</p>
                 <p>Status: {{status}}</p>
-                <button @click="changeStatus('In productie')">In Productie</button>
-                <button @click="changeStatus('Gereed')">Gereed</button>
-                <button @click="deleteDonut">Delete</button>
+                <div class="button__container">
+                <button @click="changeStatus('In productie')" class="btn btn--strawberry">In Productie</button>
+                <button @click="changeStatus('Gereed')" class="btn btn--strawberry">Gereed</button>
+                <button @click="deleteDonut" class="btn btn--lemon">Delete</button>
+                 </div>
         </div>
 </template>
 
 <style scoped>
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
 .donut__image {
     width: 200px;
     height: 200px;
     object-fit: cover;
+}
+
+.btn {
+    color: var(--lemon);
+    margin: 1rem;
+}
+
+.btn--strawberry {
+    font-weight: medium;
+    background-color: var(--strawberry);
+}
+
+.btn--lemon {
+    font-weight: medium;
+    color: var(--strawberry);
+    background-color: var(--lemon);
 }
 </style>
