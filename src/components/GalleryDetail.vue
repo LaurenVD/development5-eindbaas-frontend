@@ -33,6 +33,26 @@
             })
     });
 
+    //if clicked on changeStatus, change status to value of button
+    const changeStatus = (status) => {
+        //get id from url
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        //fetch data from api
+        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: status
+            })
+        })
+        //reload page after a quarter second
+        setTimeout(function(){ window.location.reload(); }, 100);
+    }
+
     //delete donut
     const deleteDonut = () => {
         //get id from url
@@ -54,7 +74,6 @@
             })
     }
 
-
 </script>
 
 <template>
@@ -63,6 +82,8 @@
                 <img :src="image" alt="donut image" class="donut__image">
                 <p>Glaze: {{glaze}}</p>
                 <p>Status: {{status}}</p>
+                <button @click="changeStatus('In productie')">In Productie</button>
+                <button @click="changeStatus('Gereed')">Gereed</button>
                 <button @click="deleteDonut">Delete</button>
         </div>
 </template>
