@@ -35,20 +35,61 @@
 
 <template>
     <div>
-        <h1>The Donuts!</h1>
-        <div class="col">
-            <div v-for="donut in donuts.data" :key="donut.id" class="">
-                <a @click="goToDetail(donut._id)"><h2>{{donut.name}}</h2></a>
+        <h1 class="title">Ontdek de <span class="title title--highlight" >donutgallerij</span></h1>
+        <div class="grid">
+            <div v-for="donut in donuts.data" :key="donut.id" class="grid--item">
                 <img :src="donut.image" alt="donut image" class="donut__image">
+                <h2>{{donut.name}}</h2>
+                <button @click="goToDetail(donut._id)" class="btn btn--strawberry">Bekijk donut</button>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+.title {
+    font-weight: bold;
+}
+
+.title--highlight {
+    color: var(--strawberry);
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+}
+
+.grid--item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
 .donut__image {
-    width: 200px;
-    height: 200px;
     object-fit: cover;
+    width: 350px;
+    height: 150px;
+    border-top-left-radius: calc(1rem - 1px);
+    border-top-right-radius: calc(1rem - 1px);
+}
+
+.btn {
+    color: var(--lemon);
+}
+
+.btn--strawberry {
+    font-weight: medium;
+    background-color: var(--strawberry);
 }
 </style>
