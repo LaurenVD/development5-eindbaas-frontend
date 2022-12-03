@@ -9,6 +9,11 @@
     let sprinkles = ref("");
     let status = ref("");
 
+    // only allow user to see page if they are logged in
+    if (!localStorage.getItem('token')) {
+        window.location.href = '/login.html'
+    }
+
     //show details from donut with id
     onMounted(() => {
         //get id from url
