@@ -33,6 +33,28 @@
             })
     });
 
+    //delete donut
+    const deleteDonut = () => {
+        //get id from url
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        //fetch data from api
+        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        fetch(apiUrl, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                //go to gallery page
+                window.location.href = '/gallery.html'
+            })
+    }
+
+
 </script>
 
 <template>
@@ -41,6 +63,7 @@
                 <img :src="image" alt="donut image" class="donut__image">
                 <p>Glaze: {{glaze}}</p>
                 <p>Status: {{status}}</p>
+                <button @click="deleteDonut">Delete</button>
         </div>
 </template>
 
