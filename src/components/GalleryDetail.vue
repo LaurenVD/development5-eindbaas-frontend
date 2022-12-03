@@ -77,12 +77,12 @@
 </script>
 
 <template>
-        <div class="col">
+        <div class="donut">
                 <h2>{{name}}</h2>
                 <img :src="image" alt="donut image" class="donut__image">
-                <p>Glaze: {{glaze}}</p>
-                <p>Status: {{status}}</p>
-                <div class="button__container">
+                <p class="donut__text">Glaze: {{glaze}}</p>
+                <p class="donut__text">Status: {{status}}</p>
+                <div class="donut__btnContainer">
                 <button @click="changeStatus('In productie')" class="btn btn--strawberry">In Productie</button>
                 <button @click="changeStatus('Gereed')" class="btn btn--strawberry">Gereed</button>
                 <button @click="deleteDonut" class="btn btn--lemon">Delete</button>
@@ -91,7 +91,7 @@
 </template>
 
 <style scoped>
-.col {
+.donut {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,6 +104,10 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 1rem;
+}
+
+.donut__text {
+    font-weight: normal;
 }
 
 .donut__image {

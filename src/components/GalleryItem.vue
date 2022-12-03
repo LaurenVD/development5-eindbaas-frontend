@@ -36,11 +36,11 @@
 <template>
     <div>
         <h1 class="title">Ontdek de <span class="title title--highlight" >donutgallerij</span></h1>
-        <div class="grid">
-            <div v-for="donut in donuts.data" :key="donut.id" class="grid--item">
-                <img :src="donut.image" alt="donut image" class="donut__image">
-                <h2>{{donut.name}}</h2>
-                <button @click="goToDetail(donut._id)" class="btn btn--strawberry">Bekijk donut</button>
+        <div class="galleryitem">
+            <div v-for="donut in donuts.data" :key="donut.id" class="galleryitem__donut">
+                <img :src="donut.image" alt="donut image" class="galleryitem__image">
+                <h2 class="galleryitem__subheading">{{donut.name}}</h2>
+                <button @click="goToDetail(donut._id)" class="galleryitem__btn btn--strawberry">Bekijk donut</button>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
     color: var(--strawberry);
 }
 
-.grid{
+.galleryitem{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -66,7 +66,7 @@
     margin-bottom: 3rem;
 }
 
-.grid--item {
+.galleryitem__donut {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,7 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
 }
-.donut__image {
+.galleryitem__image {
     object-fit: cover;
     width: 350px;
     height: 150px;
@@ -85,7 +85,7 @@
     border-top-right-radius: calc(1rem - 1px);
 }
 
-.btn {
+.galleryitem__btn {
     color: var(--lemon);
 }
 
