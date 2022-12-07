@@ -20,8 +20,12 @@
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
-        fetch(apiUrl)
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
+        fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }})
             .then(res => res.json())
             .then(data => {
                 donut.data = data.data.donuts
@@ -34,23 +38,24 @@
     });
 
     //if clicked on changeStatus, change status to value of button
-    const changeStatus = (status) => {
+    const changeStatus = () => {
         //get id from url
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                status: status
-            })
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
         })
-        //reload page after a quarter second
-        setTimeout(function(){ window.location.reload(); }, 100);
+            .then(res => res.json())
+            .then(data => {
+                //change status to value of button
+                status.value = data.status
+            })
+            //reload page quarter of a second after status is changed
     }
 
     //delete donut
@@ -59,11 +64,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         })
             .then(res => res.json())
@@ -81,6 +86,7 @@
                 <h2>{{name}}</h2>
                 <img :src="image" alt="donut image" class="donut__image">
                 <p class="donut__text">Glaze: {{glaze}}</p>
+                <p class="donut__text">Sprinkles: {{sprinkles}}</p>
                 <p class="donut__text">Status: {{status}}</p>
                 <div class="donut__btnContainer">
                 <button @click="changeStatus('In productie')" class="btn btn--strawberry">In Productie</button>
