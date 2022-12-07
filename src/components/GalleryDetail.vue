@@ -10,6 +10,7 @@
     let sprinkles = ref("");
     let status = ref("");
     let route = useRoute()
+    let production = ref("")
 
     // only allow user to see page if they are logged in
     if (!localStorage.getItem('token')) {
@@ -22,7 +23,7 @@
         const id = route.params.id;
         console.log(id)
         //fetch data from api
-        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -37,29 +38,37 @@
                 glaze.value = data.data.donut.glaze
                 sprinkles.value = data.data.donut.sprinkles
                 status.value = data.data.donut.status
+                production.value = data.data.donut.production
             })
     });
 
     //if clicked on changeStatus, change status to value of button
-    const changeStatus = () => {
+        //if clicked on changeStatus, change status to value of button
+    const changeStatus = (production) => {
         //get id from url
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
+        const id = route.params.id;
+        console.log(id)
         //fetch data from api
-        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            }
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                production: production
+            })
         })
             .then(res => res.json())
             .then(data => {
-                //change status to value of button
-                status.value = data.status
+                donut.data = data.data.donut
+                //show new production status
+                console.log(data.data.donut.production)
             })
-            //reload page quarter of a second after status is changed
     }
+
+
 
     //delete donut
     const deleteDonut = () => {
@@ -67,7 +76,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
         //fetch data from api
-        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {
@@ -90,10 +99,12 @@
                 <img :src="image" alt="donut image" class="donut__image">
                 <p class="donut__text">Glaze: {{glaze}}</p>
                 <p class="donut__text">Sprinkles: {{sprinkles}}</p>
-                <p class="donut__text">Status: {{status}}</p>
+                <p class="donut__text">Productie: {{production}}</p>
                 <div class="donut__btnContainer">
-                <button @click="changeStatus('In productie')" class="btn btn--strawberry">In Productie</button>
-                <button @click="changeStatus('Gereed')" class="btn btn--strawberry">Gereed</button>
+                <select v-model="production" @change="changeStatus(production)">
+                    <option value="In productie">In productie</option>
+                    <option value="Gereed">Gereed</option>
+                </select>
                 <button @click="deleteDonut" class="btn btn--lemon">Delete</button>
                  </div>
         </div>
