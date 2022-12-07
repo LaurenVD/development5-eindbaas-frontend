@@ -23,8 +23,8 @@ const login = async () => {
   const data = await response.json()
   console.log(data)
 // if user is not false then redirect to gallery
-  if (data.data.user.user) {
-    localStorage.setItem('token', data.data.user.user.token)
+  if (data.data) {
+    localStorage.setItem('token', data.data.token)
     window.location.href = '/gallery.html'
   }
 }
