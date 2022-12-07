@@ -1,6 +1,7 @@
 <script setup>
     // detail donut page by id
     import { ref, onMounted, reactive } from 'vue'
+    import { useRoute } from 'vue-router'
     let donut = reactive({data: []});
     let name = ref('');
     let id = ref("");
@@ -8,6 +9,7 @@
     let glaze = ref("");
     let sprinkles = ref("");
     let status = ref("");
+    let route = useRoute()
 
     // only allow user to see page if they are logged in
     if (!localStorage.getItem('token')) {
@@ -17,8 +19,8 @@
     //show details from donut with id
     onMounted(() => {
         //get id from url
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
+        const id = route.params.id;
+        console.log(id)
         //fetch data from api
         const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
@@ -30,11 +32,11 @@
             .then(data => {
                 console.log(data)
                 donut.data = data.data.donut
-                //name.value = data.data.donut.name
-                //image.value = data.data.donut.image
-                //glaze.value = data.data.donut.glaze
-                //sprinkles.value = data.data.donut.sprinkles
-                //status.value = data.data.donut.status
+                name.value = data.data.donut.name
+                image.value = data.data.donut.image
+                glaze.value = data.data.donut.glaze
+                sprinkles.value = data.data.donut.sprinkles
+                status.value = data.data.donut.status
             })
     });
 
