@@ -64,8 +64,8 @@
     //delete donut
     const deleteDonut = () => {
         //get id from url
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
+        const id = route.params.id;
+        console.log(id)
         //fetch data from api
         const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
@@ -78,7 +78,7 @@
             .then(data => {
                 console.log(data)
                 //go to gallery page
-                window.location.href = '/gallery.html'
+                window.location.href = '/gallery'
             })
     }
 
