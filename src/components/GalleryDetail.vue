@@ -11,7 +11,7 @@
 
     // only allow user to see page if they are logged in
     if (!localStorage.getItem('token')) {
-        window.location.href = '/login.html'
+        window.location.href = '/login'
     }
 
     //show details from donut with id
@@ -28,12 +28,13 @@
             }})
             .then(res => res.json())
             .then(data => {
-                donut.data = data.data.donuts
-                name.value = data.data.donut.name
-                image.value = data.data.donut.image
-                glaze.value = data.data.donut.glaze
-                sprinkles.value = data.data.donut.sprinkles
-                status.value = data.data.donut.status
+                console.log(data)
+                donut.data = data.data.donut
+                //name.value = data.data.donut.name
+                //image.value = data.data.donut.image
+                //glaze.value = data.data.donut.glaze
+                //sprinkles.value = data.data.donut.sprinkles
+                //status.value = data.data.donut.status
             })
     });
 

@@ -1,9 +1,10 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Navigation from './components/Navigation.vue';
-import GalleryItem from './components/GalleryItem.vue';
-import Home from './components/Home.vue'
+//import navigation
+import Navigation from '../src/components/Navigation.vue';
+import GalleryItem from '../src/components/GalleryItem.vue';
+import Home from '../views/Home.vue'
 
 import { onMounted, reactive, ref } from 'vue'
 
@@ -25,7 +26,7 @@ const login = async () => {
 // if user is not false then redirect to gallery
   if (data.data) {
     localStorage.setItem('token', data.data.token)
-    window.location.href = '/gallery.html'
+    window.location.href = '/gallery'
   }
 }
 

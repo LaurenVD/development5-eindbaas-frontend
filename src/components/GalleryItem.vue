@@ -36,8 +36,8 @@
             .then(res => res.json())
             .then(data => {
                 donuts.data = data.data.donuts
-                //go to detail page with id
-                window.location.href = `/detail.html?id=${_id}`
+                //go to detail route
+                window.location.href = `/details/${_id}`
             })
     }
 
