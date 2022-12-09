@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
-import Navigation from '../src/components/Navigation.vue';
+import Navigation from '../../src/components/Navigation.vue';
 
 </script>
 

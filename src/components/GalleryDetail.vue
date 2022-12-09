@@ -80,14 +80,15 @@
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
             }
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 //go to gallery page
-                window.location.href = '/gallery'
+                window.location.href = '/gallery.html'
             })
     }
 
