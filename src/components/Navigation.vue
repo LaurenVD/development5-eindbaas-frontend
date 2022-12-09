@@ -4,7 +4,7 @@ import { ref, onMounted, reactive } from 'vue'
 //when button is clicked, remove token from local storage and redirect to login page
 const logout = () => {
     localStorage.removeItem('token')
-    window.location.href = '/login.html'
+    window.location.href = '/login'
 }
 
 </script>

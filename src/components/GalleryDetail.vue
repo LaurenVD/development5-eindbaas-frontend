@@ -73,21 +73,22 @@
     //delete donut
     const deleteDonut = () => {
         //get id from url
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
+        const id = route.params.id;
+        console.log(id)
         //fetch data from api
         const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
             }
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                //go to gallery page
-                window.location.href = '/gallery.html'
+                //go to gallery
+                window.location.href = '/gallery'
             })
     }
 
