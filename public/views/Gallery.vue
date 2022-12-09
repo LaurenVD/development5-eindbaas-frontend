@@ -8,7 +8,7 @@ import Home from '../views/Home.vue'
 //only show gallery with right token
 const token = localStorage.getItem('token')
 if (!token) {
-  window.location.href = '/login.html'
+  window.location.href = '/login'
 }
 
 </script>
