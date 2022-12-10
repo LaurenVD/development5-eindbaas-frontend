@@ -12,7 +12,7 @@ const logout = () => {
 <template>
   <nav>
     <a class="nav--link" href="/">Home</a>
-    <a class="nav--link" href="/">Configurator</a>
+    <a class="nav--link" href="https://development5-eindbaas-three.vercel.app/">Configurator</a>
     <a class="nav--link" href="/gallery">Gallerij</a>
     <a class="nav--link" href="/login">Login</a>
     <a class="nav--link" @click="logout">Logout</a>
