@@ -11,13 +11,13 @@ const logout = () => {
 
 <template>
   <nav>
+    <img src="./../assets/donuttello-logo.png" alt="donutello">
     <a class="nav--link" href="/">Home</a>
-    <a class="nav--link" href="/">Configurator</a>
+    <a class="nav--link" href="https://development5-eindbaas-three.vercel.app/">Configurator</a>
     <a class="nav--link" href="/gallery">Gallerij</a>
     <a class="nav--link" href="/login">Login</a>
     <a class="nav--link" @click="logout">Logout</a>
   </nav>
-  <img src="./../assets/donuttello-logo.png" alt="donutello">
 </template>
 
 <style scoped>
@@ -33,11 +33,19 @@ const logout = () => {
   .nav--link {
     margin-right: 2rem;
     color: #fff;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+
+  .nav--link:hover {
+    color: var(--lemon);
+    cursor: pointer;
   }
 
   img {
-    margin-top: -3rem;
-    margin-right: auto;
+    width: 10rem;
+    margin-right: 35rem;
+    margin-top: -2rem;
   }
   
 </style>
