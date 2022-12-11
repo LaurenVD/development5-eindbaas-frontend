@@ -5,6 +5,7 @@
     let donut = reactive({data: []});
     let name = ref('');
     let id = ref("");
+    let email = ref("");
     let image = ref("");
     let glaze = ref("");
     let sprinkles = ref("");
@@ -34,6 +35,7 @@
                 console.log(data)
                 donut.data = data.data.donut
                 name.value = data.data.donut.name
+                email.value = data.data.donut.email
                 image.value = data.data.donut.image
                 glaze.value = data.data.donut.glaze
                 sprinkles.value = data.data.donut.sprinkles
@@ -97,6 +99,7 @@
 <template>
         <div class="donut">
                 <h2>{{name}}</h2>
+                <h3>{{email}}</h3>
                 <img :src="image" alt="donut image" class="donut__image">
                 <p class="donut__text">Glaze: {{glaze}}</p>
                 <p class="donut__text">Sprinkles: {{sprinkles}}</p>
