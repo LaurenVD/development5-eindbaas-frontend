@@ -11,7 +11,7 @@ import { onMounted, reactive, ref } from 'vue'
 
 //log user in with correct credentials
 const login = async () => {
-  const response = await fetch('https://donutello-backend.onrender.com/users/login', {
+  const response = await fetch('https://eindbaas-donutello-node.onrender.com/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

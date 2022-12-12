@@ -24,7 +24,7 @@
         const id = route.params.id;
         console.log(id)
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -46,12 +46,12 @@
 
     //if clicked on changeStatus, change status to value of button
         //if clicked on changeStatus, change status to value of button
-    const changeStatus = (production) => {
+        const changeStatus = (production) => {
         //get id from url
         const id = route.params.id;
         console.log(id)
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'PUT',
             headers: {
@@ -67,10 +67,9 @@
                 donut.data = data.data.donut
                 //show new production status
                 console.log(data.data.donut.production)
+                console.log(data)
             })
     }
-
-
 
     //delete donut
     const deleteDonut = () => {
@@ -78,7 +77,7 @@
         const id = route.params.id;
         console.log(id)
         //fetch data from api
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${id}`;
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {

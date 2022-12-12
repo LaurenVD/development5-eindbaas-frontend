@@ -9,7 +9,7 @@
     //fetch name and image from https://donutello-backend.onrender.com/api/v1/donuts
     // onMounted
     onMounted(() => {
-        const apiUrl = "https://donutello-backend.onrender.com/api/v1/donuts/";
+        const apiUrl = "https://eindbaas-donutello-node.onrender.com/api/v1/donuts/";
         fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -26,7 +26,7 @@
     //when name is clicked, go to detail page with id connected to name
     const goToDetail = (_id) => {
         //fetch id
-        const apiUrl = `https://donutello-backend.onrender.com/api/v1/donuts/${_id}`;
+        const apiUrl = `https://eindbaas-donutello-node.onrender.com/api/v1/donuts/${_id}`;
         fetch(apiUrl, {
             method: 'GET',
             headers: {
