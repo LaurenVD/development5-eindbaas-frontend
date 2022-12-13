@@ -36,12 +36,12 @@ const login = async () => {
     <Navigation />
   <div class="signup">
     <div>
-      <label for="username">username</label>
+      <label for="username">Gebruikersnaam</label>
       <input type="text" class="input--text" name="username" id="username">
     </div>
     
     <div>
-      <label for="password">Password</label>
+      <label for="password">Wachtwoord</label>
       <input type="password" class="input--text" name="password" id="password">
     </div>
     
@@ -51,5 +51,43 @@ const login = async () => {
 </template>
 
 <style scoped>
+
+label {
+    margin: auto;
+    padding: 2rem;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding-top: 1rem;
+  };
+
+input {
+    margin: 0;
+    padding: 2rem;
+    font-size: 1.5em;
+    font-weight: bolder;
+    display: block;
+  };
+
+  .title {
+    color: white;
+    font-weight: bold;
+  }
+
+  .title--highlight {
+    color: var(--strawberry);
+  }
+
+  .btn {
+    background-color: #f7e200;
+    color: #E72870;
+    font-size: clamp(0.9rem, 1vw + 1rem, 1.5rem);
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-radius: 3.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    margin-top: 1rem;
+  }
 
 </style>
