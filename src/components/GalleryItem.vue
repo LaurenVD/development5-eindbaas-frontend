@@ -103,4 +103,16 @@
     font-weight: medium;
     background-color: var(--strawberry);
 }
+
+.galleryitem__donut:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.galleryitem__btn:hover {
+    background-color: var(--lemon);
+    color: var(--strawberry);
+    transition: all 0.3s ease-in-out;
+}
 </style>

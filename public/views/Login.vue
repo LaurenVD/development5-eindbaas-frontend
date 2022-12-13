@@ -90,4 +90,14 @@ input {
     margin-top: 1rem;
   }
 
+  .btn:hover {
+    background-color: #E72870;
+    color: #f7e200;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn:active {
+    transform: translateY(2px);
+  }
+
 </style>
