@@ -8,6 +8,9 @@ import Home from '../views/Home.vue'
 
 import { onMounted, reactive, ref } from 'vue'
 
+//define error
+const error = ref('')
+
 
 //log user in with correct credentials
 const login = async () => {
@@ -28,6 +31,11 @@ const login = async () => {
     localStorage.setItem('token', data.data.token)
     window.location.href = '/gallery'
   }
+  //show v-if error if login is incorrect
+  else {
+    error.value = 'Gebruikersnaam of wachtwoord zijn incorrect'
+  }
+
 }
 
 </script>
@@ -37,13 +45,15 @@ const login = async () => {
   <div class="signup">
     <div>
       <label for="username">Gebruikersnaam</label>
-      <input type="text" class="input--text" name="username" id="username">
+      <input type="text" class="input--text" name="username" id="username" placeholder="Vul je gebruikersnaam in">
     </div>
     
     <div>
       <label for="password">Wachtwoord</label>
-      <input type="password" class="input--text" name="password" id="password">
+      <input type="password" class="input--text" name="password" id="password" placeholder="Vul je wachtwoord in">
     </div>
+
+    <p v-if="error" class="error">Gebruikersnaam of wachtwoord zijn incorrect</p>
     
     <button class="btn" @click="login">Login</button>
   </div>
@@ -52,22 +62,30 @@ const login = async () => {
 
 <style scoped>
 
-label {
-    margin: auto;
-    padding: 2rem;
-    display: block;
-    font-size: 1.5em;
-    font-weight: bolder;
-    padding-top: 1rem;
-  };
+  label {
+    margin-top: 1rem;
+    margin-right: 2rem;
+    font-weight : bold;
+  }
 
-input {
-    margin: 0;
-    padding: 2rem;
-    font-size: 1.5em;
-    font-weight: bolder;
-    display: block;
-  };
+  .input--text {
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid #E72870;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .input--text:focus {
+    outline: none;
+  }
+
+  .input--text::placeholder {
+    color: lightgray;
+    font-family: 'Dosis', sans-serif;
+  }
 
   .title {
     color: white;
@@ -98,6 +116,12 @@ input {
 
   .btn:active {
     transform: translateY(2px);
+  }
+
+  .error {
+    color: red;
+    font-weight: bolder;
+    margin-top: 1rem;
   }
 
 </style>
