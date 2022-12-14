@@ -89,7 +89,7 @@
             .then(data => {
                 console.log(data)
                 //go to gallery page
-                window.location.href = '/gallery.html'
+                window.location.href = '/gallery'
             })
     }
 
@@ -108,7 +108,7 @@
                     <option value="In productie">In productie</option>
                     <option value="Gereed">Gereed</option>
                 </select>
-                <button @click="deleteDonut" class="btn btn--lemon">Delete</button>
+                <button @click="deleteDonut" class="btn btn--lemon">Verwijder donut</button>
                  </div>
         </div>
 </template>
@@ -126,7 +126,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .donut__text {
@@ -137,6 +138,14 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+}
+
+select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 .btn {
@@ -150,7 +159,7 @@
 }
 
 .btn--lemon {
-    font-weight: medium;
+    font-weight: bolder;
     color: var(--strawberry);
     background-color: var(--lemon);
 }
