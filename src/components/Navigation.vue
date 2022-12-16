@@ -7,6 +7,14 @@ const logout = () => {
     window.location.href = '/login'
 }
 
+const loggedIn = () => {
+    if (localStorage.getItem('token')) {
+        return true
+    } else {
+        return false
+    }
+}
+
 </script>
 
 <template>
@@ -15,8 +23,9 @@ const logout = () => {
     <a class="nav--link" href="/">Home</a>
     <a class="nav--link" href="https://development5-eindbaas-three.vercel.app/">Configurator</a>
     <a class="nav--link" href="/gallery">Gallerij</a>
-    <a class="nav--link" href="/login">Login</a>
-    <a class="nav--link" @click="logout">Logout</a>
+    <a class="nav--link" v-if="loggedIn()" href="/login">Logout</a>
+    <a class="nav--link" v-else href="/login" @click="logout">Login</a>
+
   </nav>
 </template>
 
