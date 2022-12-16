@@ -27,7 +27,7 @@ const login = async () => {
   if (data.data) {
     localStorage.setItem('token', data.data.token)
     window.location.href = '/gallery'
-  }
+  } 
 }
 
 </script>
