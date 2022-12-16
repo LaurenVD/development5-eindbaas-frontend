@@ -88,8 +88,12 @@
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                //go to gallery page
-                window.location.href = '/gallery.html'
+                //give pop up message to confirm delete
+                alert('Donut verwijderd')
+
+                //redirect to gallery
+                window.location.href = '/gallery'
+                
             })
     }
 
