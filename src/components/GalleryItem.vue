@@ -1,7 +1,9 @@
 <script setup>
     import { ref, onMounted, reactive } from 'vue'
+    import { useRoute } from 'vue-router'
     let donuts = reactive({data: []});
     let name = reactive({data: []});
+    
     //id
     let id = ref("");
     let imageSrc = ref("");
@@ -38,9 +40,12 @@
                 donuts.data = data.data.donuts
                 //go to detail route
                 window.location.href = `/details/${_id}`
+                
             })
     }
 
+
+    
 </script>
 
 <template>
@@ -48,6 +53,7 @@
         <h1 class="title">Ontdek de <span class="title title--highlight" >donutgallerij</span></h1>
         <div class="galleryitem">
             <div v-for="donut in donuts.data" :key="donut.id" class="galleryitem__donut">
+                <button @click="deleteDonut(donut._id)" class="galleryitem__btnDelete btn--strawberry">Delete</button>
                 <img :src="donut.image" alt="donut image" class="galleryitem__image">
                 <h2 class="galleryitem__subheading">{{donut.name}}</h2>
                 <p class="galleryitem__text">Productie: {{donut.production}}</p>
@@ -115,5 +121,15 @@
     background-color: var(--lemon);
     color: var(--strawberry);
     transition: all 0.3s ease-in-out;
+}
+
+.galleryitem__btnDelete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 0.25rem;
+    color: yellow
+    
+
 }
 </style>
