@@ -50,6 +50,7 @@
             <div v-for="donut in donuts.data" :key="donut.id" class="galleryitem__donut">
                 <img :src="donut.image" alt="donut image" class="galleryitem__image">
                 <h2 class="galleryitem__subheading">{{donut.name}}</h2>
+                <p class="galleryitem__text">Productie: {{donut.production}}</p>
                 <button @click="goToDetail(donut._id)" class="galleryitem__btn btn--strawberry">Bekijk donut</button>
             </div>
         </div>
