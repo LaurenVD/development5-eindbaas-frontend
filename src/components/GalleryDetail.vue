@@ -107,12 +107,12 @@
                 <p class="donut__text">Glaze: {{glaze}}</p>
                 <p class="donut__text">Sprinkles: {{sprinkles}}</p>
                 <p class="donut__text">Productie: {{production}}</p>
-                <div class="donut__btnContainer">
                 <select v-model="production" @change="changeStatus(production)">
                     <option value="In productie">In productie</option>
                     <option value="Gereed">Gereed</option>
                 </select>
-                <button @click="deleteDonut" class="btn btn--lemon">Delete</button>
+                <div class="donut__btnContainer">
+                <button @click="deleteDonut" class="btn btn--lemon">Verwijder donut</button>
                  </div>
         </div>
 </template>
@@ -144,8 +144,14 @@
 }
 
 .btn {
-    color: var(--lemon);
-    margin: 1rem;
+    background-color: #f7e200;
+    color: #E72870;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-radius: 3.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    margin : 1rem;
 }
 
 .btn--strawberry {
@@ -157,5 +163,11 @@
     font-weight: medium;
     color: var(--strawberry);
     background-color: var(--lemon);
+}
+
+.btn--lemon:hover {
+    background-color: var(--strawberry);
+    color: var(--lemon);
+    transition: all 0.3s ease-in-out;
 }
 </style>
